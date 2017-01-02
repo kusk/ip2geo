@@ -15,15 +15,13 @@ except:
 c = 0
 
 reader = geoip2.database.Reader('GeoLite2-Country.mmdb')
-m = magic.open(magic.MAGIC_MIME)
-m.load()
 response = reader.country('80.62.117.136')
 rootdir = sys.argv[1]
 save = open(sys.argv[2], 'a')
 save.write('IP;Country;File;Line;'+"\n")
 for dirName, subdirList, fileList in os.walk(rootdir):
 	for fname in fileList:
-		if "text" in m.file(dirName+'/'+fname):
+		if "text" in magic.from_file(dirName+'/'+fname):
 			f = open(dirName+'/'+fname, 'r')
 			try:
 				for l in f.readlines():
