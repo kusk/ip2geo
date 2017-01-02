@@ -8,3 +8,12 @@ Exports csv file with following data:
 
 Howto:
 python3 ip2geo.py [path with files to parse] [output csv-file]
+
+
+
+Needs:
+python-magic
+geoip2
+
+
+Use pip3
